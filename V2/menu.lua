@@ -12,8 +12,7 @@ local startButton
 local loadGame
 local exitButton
 
--- Define o estado inicial
-menu.state = "menu" 
+
 
 -- Dimensões e posições dos botões
 local buttonWidth = 200
@@ -35,16 +34,18 @@ function  menu.load()
     predio = love.graphics.newImage("assets/predio.png")
 
     startButton = Button("Iniciar jogo", function()
-        menu.state = "game"
-    end, nil, buttonWidth, buttonHeight, "assets/hover-sound.mp3")
+        state = "game"
+        print("Iniciar jogo clicado!")
+    end, nil, buttonWidth, buttonHeight, "assets/hover-sound.mp3", "assets/pressed-sound.mp3")
 
     loadGame = Button("Carregar Jogo", function()
         print("O botão deve carregar os blocos de historia disponiveis.")
-    end, nil, buttonWidth, buttonHeight, "assets/hover-sound.mp3")
+    end, nil, buttonWidth, buttonHeight, "assets/hover-sound.mp3", "assets/pressed-sound.mp3")
 
     exitButton = Button("Sair do jogo", function()
         love.event.quit()
-    end, nil, buttonWidth, buttonHeight, "assets/hover-sound.mp3")
+        print("Sair do jogo clicado")
+    end, nil, buttonWidth, buttonHeight, "assets/hover-sound.mp3", "assets/pressed-sound.mp3")
 
    
 
@@ -69,19 +70,28 @@ function menu.draw()
 
 end
 
-function menu.handleClick(x, y, button)
+function menu.handleClick(x, y, button) -- Identifica em qual botão foi o click
     print("clicado")
-    startButton:press()
-    loadGame:press()
-    exitButton:press()
+    if startButton.isHovered then
+        startButton:press()
+    elseif loadGame.isHovered then
+        loadGame:press()
+    elseif exitButton.isHovered then
+        exitButton:press()
+    end
     
 end
 
-function menu.mousereleased(x, y, button)
+function menu.mousereleased(x, y, button) -- Chama a função do botão
     if button == 1 then 
         startButton:release()
         loadGame:release()
         exitButton:release()
+        if startButton.isPressed then
+            state = "game"
+        elseif exitButton.isPressed then
+            love.event.quit()
+        end
     end
 end
 

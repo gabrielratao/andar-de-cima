@@ -126,6 +126,60 @@ story [13] = {
     }
 }
 
+story [14] = {
+    text = "Com tudo que aconteceu nos últimos anos, você decide que este não é o lugar e que se mudar é a escolha certa. Você encaixota suas coisas e liga para a imobiliária, resolve todos os trâmites e se muda para um novo lugar.",
+    subtext = "FIM",
+    options = {
+        {text = ""},
+        {text = ""}
+    }
+}
+
+story [15] = {
+    text = "Movido pela curiosidade, você segura a maçaneta e tenta abrir a porta. No começo, parece estar trancada, mas na segunda tentativa, com um pouco mais de força, ela se abre. Um cheiro horrível de mofo invade suas narinas, fazendo você recuar por um instante.",
+    subtext = "O que você faz?",
+    options = {
+        {text = "Entra no apartamento para investigar.", next = 18},
+        {text = "Resolve fechar a porta e deixar isso de lado.", next = 19}
+    }
+}
+
+story [16] = {
+    text = "Diante da resposta da síndica, algo dentro de você insiste que algo não está certo. Com uma lanterna em mãos e o coração acelerado, você decide subir até o andar de cima. Ao chegar ao andar, o silêncio é absoluto, mas assim que você dá alguns passos pelo corredor, um leve som de passos ecoa pelo apartamento fechado.",
+    subtext = "O que você faz?",
+    options = {
+        {text = "Aproxima-se da porta da cobertura e tenta ouvir melhor."},
+        {text = "Decide recuar, talvez seja melhor não mexer com o que quer que esteja ali."}
+    }
+}
+
+story [17] = {
+    text = "As palavras da síndica ecoam em sua mente: não há moradores na cobertura já faz alguns anos. Esse detalhe desperta em você um desconforto profundo, que agora parece difícil de ignorar. Alguns dias se passam e você se muda para um novo lugar, em busca da paz e tranquilidade que você precisava.",
+    subtext = "FIM.",
+    options = {
+        {text = ""},
+        {text = ""}
+    }
+}
+
+story [18] = {
+    text = "Você respira fundo e prende a respiração por um momento antes de finalmente entrar no apartamento. A cada passo, o rangido do chão ecoa, e uma camada espessa de poeira cobre os móveis, indicando que o lugar não é habitado há tempos. Tudo parece intocado, nada está fora de lugar, exceto por um detalhe que chama sua atenção na cozinha: garrafas e copos usados, como se alguém os tivesse deixado ali recentemente. A visão é desconcertante. Em meio àquela sensação de abandono, esses objetos parecem sinais de que alguém esteve ali, alguém que não deveria estar.",
+    subtext = "O que você faz?",
+    options = {
+        {text = "Decide continuar investigando."},
+        {text = "Resolve sair do apartamento antes que alguém note que você está ali."}
+    }
+}
+
+story [19] = {
+    text = "Você não precisa de mais problemas na sua vida, enquanto recua, fecha a porta e se dirige para seu apartamento. Os dias passam e você não volta a escutar barulhos.",
+    subtext = "FIM",
+    options = {
+        {text = ""},
+        {text = ""}
+    }
+}
+
 return story
 
 --[[

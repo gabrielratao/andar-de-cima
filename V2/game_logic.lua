@@ -1,11 +1,10 @@
 --[[
-    TODO:
 
-    → IDEALIZAR MELHOR O BOTÃO DE PAUSA
+    TODO: IDEALIZAR MELHOR O BOTÃO DE PAUSA
 
-    → CRIAR TELA "ESCAPE" PRA QUANDO CAIR EM UMA CENA NÃO CRIADA 
+    TODO: CRIAR TELA "ESCAPE" PRA QUANDO CAIR EM UMA CENA NÃO CRIADA 
 
-    → ADICIONAR O SOUNDESIGN
+    TODO: ADICIONAR O SOUNDESIGN 
 
 ]]
 
@@ -80,7 +79,7 @@ function game_logic.loadScene(sceneIndex)
             nil, -- Nenhum parâmetro adicional necessário
             buttonWidth, 
             buttonHeight,
-            "assets/hover-sound.mp3"
+            "assets/hover-sound.mp3", "assets/pressed-sound.mp3"
         )
         newButton.button_x = buttonX
         newButton.button_y = buttonY

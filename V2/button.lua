@@ -1,19 +1,21 @@
 local love = require "love"
 
-function Button(text, func, func_param, width, height, hoverSound)
+function Button(text, func, func_param, width, height, hoverSound, pressedSound)
     padding = padding or 15
     return {
         width = width or 100,
         height = height or 100,
         func = func or function() print("This button has no function attached") end,
         text = text or "No Text",
-        hoverSound = hoverSound and love.audio.newSource(hoverSound, "static") or nil,
         button_x = 0,
         button_y = 0,
         text_x = 0,
         text_y = 0,
         padding = padding,
         
+        hoverSound = hoverSound and love.audio.newSource(hoverSound, "static") or nil,
+        pressedSound = pressedSound and love.audio.newSource(pressedSound, "static") or nil,
+
         isHovered = false,
         isPressed = false,
         hasPlayedHoverSound = false,
@@ -36,9 +38,6 @@ function Button(text, func, func_param, width, height, hoverSound)
             -- Se entrou no hover e ainda não tocou o som, toca o som
             if self.isHovered and not prevHoverState and self.hoverSound then
                 love.audio.play(self.hoverSound)
-                self.hasPlayedHoverSound = true
-            elseif not self.isHovered then
-                self.hasPlayedHoverSound = false -- Reseta a flag ao sair do hover
             end
 
             if self.isPressed then
@@ -56,18 +55,22 @@ function Button(text, func, func_param, width, height, hoverSound)
 
             love.graphics.setColor(1, 1, 1)
         end,
-
+--[[
         hover = function(self, x, y)
             self.isHovered = x >= self.x and x <= self.x + self.width and y >= self.y and y <= self.y + self.height
         end,
-
+]]
         press = function(self)
             if self.isHovered then
                 self.isPressed = true
             end
+            if self.pressedSound then
+                love.audio.play(self.pressedSound)
+            end
         end,
 
         release = function(self)
+            print("botão liberado: ", self.text, "isHovered: ", self.isHovered)
             if self.isPressed and self.isHovered then
                 self.func()
             end
